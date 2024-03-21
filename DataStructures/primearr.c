@@ -43,10 +43,11 @@ void printArr(int* arr, int size){
 
 int isPrime(int num){
 	int sq_rt = sqrt(num);
-
+	if(num == 1 || num == 0){
+		return 0;
+	}
 	for(int i=2; i<=sq_rt; i++){
-		if(num%i == 0)
-		{
+		if(num%i == 0){
 			return 0;
 		}
 	}
