@@ -21,6 +21,10 @@ Let us understand the usages of these functions
 ----> We will try to understand the working of functions (flow of control)
 	----> Always remember your program starts with main() and ends with main()...
 	----> see fun.c for learning about control flow in functions.
+
+
+----> Recursion
+	----> Recursive functions are used to solve recurrence problems.
 	----> see recur.c for learning about recursion and its similarities with iterative loops
 	----> recursion is preferred when you need to write code in minimum lines of code and dont mind extra memory usage
 	----> Using recursion:
@@ -42,6 +46,76 @@ Let us understand the usages of these functions
 	----> gcc -S -o2 recur.c
 	----> in tail recursion there is no recursive function call and stack space is not used due to optimization
 	----> therefore there is no stack overflow or segmentation fault problems in optimized tail recursive code.
+
+
+	Some more important sorting algorithms!
+	----> Yesterday, we learned bubble sort, selection sort and insertion sort.
+	----> Today, we will learn about merge sort, quick sort and heap sort.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
