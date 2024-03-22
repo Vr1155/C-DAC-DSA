@@ -20,3 +20,6 @@ Let us understand the usages of these functions
 
 ----> We will try to understand the working of functions (flow of control)
 	----> Always remember your program starts with main() and ends with main()...
+	----> see fun.c for learning about control flow in functions.
+	----> see recur.c for learning about recursion and its similarities with iterative loops
+
