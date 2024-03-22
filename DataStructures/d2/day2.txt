@@ -10,6 +10,18 @@ In any problem solving
 ------> conditional branching
 ------> looping/iterative constructs (aka goto statements)
 
+----> some cool tricks learned yesterday:
+	1. set preprocessor directives through command line arguments:
+	foreg: NUM can be set by "gcc dsIntro.c -DNUM=1000000"
+	2. use "time ./a.out" to check execution speed of program.
+	3. partial init of arrays: int arr[NUM] = {0}
+	4. warnings = program compiled but some problem. you can still run the program.
+	5. error = program not compiled.
+	6. All data structures have CRUD operations.
+	7. use python tutor for visualizing your C/C++, Java, Javascript and python code.
+
+
+
 We use functions as a means to organize our code by dividing the task/program into sub tasks/programs.
 
 Let us understand the usages of these functions
