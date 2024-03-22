@@ -1,0 +1,22 @@
+Day 2:
+--------
+
+---> Yesterday
+===============
+
+In any problem solving 
+3 statements are very important.
+------> Sequential
+------> conditional branching
+------> looping/iterative constructs (aka goto statements)
+
+We use functions as a means to organize our code by dividing the task/program into sub tasks/programs.
+
+Let us understand the usages of these functions
+----> Different syntaxes can be used in function
+	----> functions taking no arguments returning nothing
+	----> functions taking no arguments returning something
+	----> functions taking arguments returning something
+
+----> We will try to understand the working of functions (flow of control)
+	----> Always remember your program starts with main() and ends with main()...
