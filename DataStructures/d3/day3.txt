@@ -1,0 +1,32 @@
+Day 3 & 4:
+==========
+
+Why worry about data structures?
+	You cant store everything in files. files are in secondary storage.
+	Neither you can store data in some remote server.
+	As it will lead to increased delay due to network latency.
+	You need data in RAM in your machine to perform processing on it.
+	
+Why aren't arrays enough?
+	Arrays are of fixed size since they are allocated at complie time.
+	We need a data structure that can be allocated at run time.
+	Also we need a DS that can stored in non-continguous memory locations	
+
+	Linked List
+		Introduction
+			Implementing basic functions
+				creating a node
+				add at beginning
+				displaying a list
+
+
+
+
+
+
+
+
+
+
+
+
