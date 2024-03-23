@@ -26,8 +26,9 @@ Node* createNode(){
 		// Also note that strings in C are just array of chars
 		// the variable name is already a pointer to the first char
 		// therefore, no need to use & there.
+
 		scanf("%d, %[^,], %lf", &ptr->id, ptr->name, &ptr->salary);
-		// pointing the pointer ptr (next Node pointer) to itself.
+		// pointing the pointer ptr (next Node pointer) to NULL.
 		ptr->ptr = NULL;
 
 		printf("ID: %d\tName: %s\tSal:%.2lf\n", ptr->id, ptr->name, ptr->salary);
