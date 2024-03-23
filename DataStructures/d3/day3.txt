@@ -18,9 +18,21 @@ Why aren't arrays enough?
 				creating a node
 				add at beginning
 				displaying a list
-
-
-
+		Task:
+			Implementing basic functions
+				creating a node
+				add at end
+				displaying the list
+		Task:
+			Implementing basic functions
+				creating a node
+				add at Position
+				displaying the list
+		Task:
+			Implementing basic functions
+				creating a node
+				Delete at Position
+				displaying the list
 
 
 
