@@ -19,7 +19,7 @@ Node* createNode(){
 	Node *ptr = malloc(sizeof(struct Employee));
 	if(ptr != NULL){
 		printf("Enter id, name, salary:");
-		scanf("%d, %[^,], %lf", &ptr->id, ptr->name, &ptr->salary);
+		scanf("%d, %[^,], %lf", &ptr->id, &ptr->name, &ptr->salary);
 		ptr->ptr = NULL;
 		printf("ID: %d\tName: %s\tSal:%.2lf\n", ptr->id, ptr->name, ptr->salary);
 	}
@@ -62,10 +62,13 @@ void addAtEnd(){
 
 int main(){
 	addAtEnd();
-	addAtEnd();
+	disp();
 	addAtEnd();
 	disp();
 	addAtEnd();
+	disp();
+	addAtEnd();
+	disp();
 	addAtEnd();
 	disp();
 }
