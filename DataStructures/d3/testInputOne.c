@@ -20,8 +20,10 @@ struct Employee{
 typedef struct Employee Node;
 
 Node* first = NULL;
+char empList[ROW][COL];
 
-//prototypes here 
+// Prototypes here 
+void extractRecordFromString(char arr[]);
 Node* createNode();
 void disp();
 void addAtEnd(char a[ROW][COL], int i);
@@ -34,24 +36,41 @@ void deleteAtPosition();
 // only take positions of those nodes from user
 // and then take positions for deletions of those nodes from user.
 
-// also note that deleteAtPosition() should only delete the exact position only!
-// if the entered position is greater than count of linked list then it should show error msg.
+// also deleteAtPosition() should give error msg,
+// if exact position does not exist in linked list.
+
+
+// Inorder to generate corefiles in current working directory:
+// run this command before you compile your program:
+// $ulimit -c 1024
+// This will generate core files in current directory
+// for checking whether core file size was set run:
+// $ulimit -a
+// there you will see the number that you set for core file size.
 
 int main(){
-	char str[5][50]={
-		"1001,Prabhat Shinde,192834.234", 
-		"1002,Vaibhav Ranashoor,52324.234", 
-		"1003,Vipul Jambhulkar,5234.23",
-		"1004,Mukund Waghmare,5234.234",
+
+	char str[]={
+		"1001,Prabhat Shinde,192834.234:" 
+		"1002,Vaibhav Ranashoor,52324.234:" 
+		"1003,Vipul Jambhulkar,5234.23:"
+		"1004,Mukund Waghmare,5234.234:"
 		"1005,Vaibhav Gaikwad,5234.2234"
 	};
-	
+		
+	extractRecordFromString(str);
+	/*
+	printf("Before loop\n");
 	for(int i=0; i<ROW; i++){
-		addAtEnd(str, i);
+		printf("%s\n", empList[i]);
+	}
+	printf("debugging done\n");
+	*/
+	for(int i=0; i<ROW; i++){
+		addAtEnd(empList, i);
 	}
 
 	disp();
-	
 	deleteAtPosition();
 	disp();
 	deleteAtPosition();
@@ -61,6 +80,16 @@ int main(){
 
 }
 
+void extractRecordFromString(char str[]){
+	char* token = strtok(str, ":");
+	int i=0;
+	while (token != NULL && i < ROW) {
+		strcpy(empList[i], token);
+		token = strtok(NULL, ":");
+		i++;
+	}
+}
+ 
 
 Node* createNode(char arr[ROW][COL], int i){
 	Node *ptr = malloc(sizeof(struct Employee));
@@ -128,6 +157,11 @@ void deleteAtPosition(){
 		temp_prev = temp;
 		temp = temp->ptr;
 		count++;
+	}
+	if(position > count)
+	{
+		printf("Invalid input, discarding input...\n");
+		return;
 	}
 	temp_prev->ptr = temp->ptr;
 	temp->ptr=NULL;
