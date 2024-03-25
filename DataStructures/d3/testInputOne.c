@@ -40,7 +40,9 @@ void deleteAtPosition();
 // if exact position does not exist in linked list.
 
 
-// Inorder to generate corefiles in current working directory:
+// Inorder to generate corefiles in current working directory
+// please note that "$" is just to show that this program must be run in
+// linux terminal only, although you might look up the windows setup
 // run this command before you compile your program:
 // $ulimit -c 1024
 // This will generate core files in current directory
@@ -160,7 +162,7 @@ void deleteAtPosition(){
 	}
 	if(position > count)
 	{
-		printf("Invalid input, discarding input...\n");
+		printf("Invalid input, no such position exists! discarding input...\n");
 		return;
 	}
 	temp_prev->ptr = temp->ptr;
