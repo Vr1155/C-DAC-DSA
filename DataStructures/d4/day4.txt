@@ -1,4 +1,11 @@
 Day 4:
 ================
 
+Nothing much happed at day 4. Same day 3 problems. 
+Except string to LL, 
+some info on core files and how to change the directory were they're stored and
+how to remove all global variables 
+(and allow functions to be reused by multiple linked lists) by 
+passing a pointer to pointer of head Node of linked list.
+
 
