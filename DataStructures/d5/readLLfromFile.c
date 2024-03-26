@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -7,8 +6,9 @@
 #define MAX 5
 #endif
 
+// Instructors final code:
 // This is the type of questions you can expect in data structures lab exam
-// reading from a string using sscanf() and strtok(), reading from a file using fscanf()
+// reading from a string using sscanf() and strtok(), reading from a file using fopens() and fscanf()
 
 
 struct Employee {
@@ -19,24 +19,22 @@ struct Employee {
 };
 typedef struct Employee Node;
 
-Node* createNode(char*);
-void addAtBeg(Node**, char*);
-void addAtEnd(Node**, char*);
-void addAtPos(Node**, char*, int);
+Node* createNode(FILE*);
+void addAtBeg(Node**, FILE*);
+void addAtEnd(Node**, FILE*);
+void addAtPos(Node**, FILE*, int);
 void deleteAtPos(Node**, int);
 void disp(Node*);
 
 int main(){
-
-	char filename[] = "myData.txt";
-	fscanf();
 	Node* first = NULL;
-	char* str = strtok(myData, ":");
-	while(str != NULL){
-		addAtEnd(&first, str);
-		str = strtok(NULL, ":");
+	FILE* fPtr = fopen("myData.txt", "r");
+	if(fPtr != NULL){
+		while(!feof(fPtr)){
+			addAtEnd(&first, fPtr);
+		}
+		disp(first);
 	}
-	disp(first);
 }
 
 void deleteAtPos(Node** first, int pos){
@@ -65,7 +63,7 @@ void deleteAtPos(Node** first, int pos){
 	free(temp);
 }
 
-void addAtPos(Node** first, char* data, int pos){
+void addAtPos(Node** first, FILE* data, int pos){
 	Node* New = createNode(data);
 	if(*first == NULL)
 		*first = New;
@@ -82,7 +80,7 @@ void addAtPos(Node** first, char* data, int pos){
 }
 
 
-void addAtEnd(Node** first, char* data){
+void addAtEnd(Node** first, FILE* data){
 	Node* New = createNode(data);
 	if(*first == NULL){
 		*first = New;
@@ -96,7 +94,7 @@ void addAtEnd(Node** first, char* data){
 	}
 }
 
-void addAtBeg(Node** first, char* data){
+void addAtBeg(Node** first, FILE* data){
 	Node* New = createNode(data);
 	if(*first == NULL){
 		*first = New;
@@ -116,12 +114,17 @@ void disp(Node* temp){
 	printf("\n----------------------------------------\n");
 }
 
-Node* createNode(char* myData){
-	Node* ptr = malloc(sizeof(struct Employee));
-	if(ptr != NULL){
-		sscanf(myData, "%d,%[^,],%lf", &ptr->id, ptr->name, &ptr->salary);
+Node* createNode(FILE* fPtr){
+	Node* ptr = NULL;
+
+	if(!feof(fPtr)){
+		ptr = malloc(sizeof(struct Employee));
+		int ret = fscanf(fPtr, "%d,%[^,],%lf", &ptr->id, ptr->name, &ptr->salary);
 		ptr->ptr = NULL;
-		
+		if(ret == -1){
+			free(ptr);
+			ptr=NULL;
+		}
 	}
 	return ptr;
 }
