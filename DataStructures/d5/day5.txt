@@ -1,0 +1,25 @@
+day5:
+======================================
+
+linux binary executable: .elf format
+e = executable
+l = linkable
+f = format
+
+windows have a different executable file format.
+C compiler has to generate different executable for different platforms.
+Therefore it is said that C is a platform dependent language.
+
+Incase "ulimit -c" command does not work, use:
+$gcc -g filename.c
+$gdb -q a.out
+
+Once gdb shell opens start debugging main by typing:
+b main
+r
+
+Then just type:
+n
+
+to jump to next breakpoint (line by line),
+eventually you will reach the line that gives the segfault
