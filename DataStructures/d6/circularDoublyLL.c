@@ -1,13 +1,18 @@
-
 #include<stdio.h>
 #include<stdlib.h>
 
 typedef struct Test{
 	int data;
-	struct Test *next;
+	struct Test *prev, *next;
 } Node;
 
 Node *first, *last;
+
+// Instructor's code for circular doubldy linked list.
+// Please note that in printForward() and printReverse(),
+// we have to check for empty lists as well
+// otherwise you may get segfault.
+
 
 Node *createNode(int);
 void addAtBeg(int);
@@ -46,7 +51,7 @@ Node* createNode(int num){
 	Node* New = malloc(sizeof(Node));
 	if(New!=NULL){
 		New->data = num;
-		New->next = NULL;
+		New->prev = New->next = NULL;
 	}
 	return New;
 }
@@ -55,11 +60,12 @@ void addAtBeg(int num){
 	Node* New = createNode(num);
 	if(first == NULL){
 		first = last = New;
-		New->next = New;
 	}
 	else{
+		first->prev = New;
 		New->next = first;
 		first = New;
+		first->prev = last;
 		last->next = first;
 	}
 }
@@ -68,27 +74,23 @@ void addAtEnd(int num){
 	Node* New = createNode(num);
 	if(first == NULL){
 		first = last = New;
-		New->next = New;
 	}
 	else{
+		New->prev = last;
 		last->next = New;
 		last = New;
 		last->next = first;
+		first->prev = last;
 	}
 }
 
 void disp(){
-	printf("Printing the Linked List:\n");
+	printf("Forward: ");
 	printForward();
-	/*
 	printf("Reverse: ");
 	printReverse();
-	*/
 	printf("\n-------------------------------\n");
 }
-
-// make sure you have a condition check for empty lists as well
-// otherwise you will get a segfault
 
 void printForward(){
 	Node* temp = first;
@@ -105,18 +107,22 @@ void printForward(){
 	printf("\n");
 }
 
-/*
 void printReverse(){
 	Node* temp = last;
-	printf("%d ", temp->data);
-	temp = temp->prev;
-	while(temp != last){
+	
+	if(temp != NULL){
+		while(temp->prev != last){
+			printf("%d ", temp->data);
+			temp = temp->prev;
+		}
 		printf("%d ", temp->data);
-		temp = temp->prev;
 	}
+	else{
+		printf("Empty List");
+	}
+
 	printf("\n");
 }
-*/
 
 void deleteAtData(int data){
 	if(first == NULL){
@@ -135,18 +141,24 @@ void deleteAtData(int data){
 		return;
 	}
 	else if(temp == first){
+		temp->next->prev = last;
 		last->next = temp->next;
 		first = temp->next;
 		temp->next = NULL;
+		temp->prev = NULL;
 	}
 	else if(temp == last){
 		temp_prev->next = first;
+		first->prev = temp_prev;
 		last = temp_prev;
 		temp->next = NULL;
+		temp->prev = NULL;
 	}
 	else{
+		temp->next->prev = temp_prev;
 		temp_prev->next = temp->next;
 		temp->next = NULL;
+		temp->prev = NULL;
 	}
 	free(temp);
 }
