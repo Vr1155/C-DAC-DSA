@@ -31,5 +31,44 @@ all interior nodes have two children and all leaves have the same depth or same 
 A perfect binary tree is a full binary tree.
 A perfect tree is therefore always complete but a complete tree is not always perfect.
 
+AVL and Red Black trees are not covered in this module.
+
 
 see for more info: https://en.wikipedia.org/wiki/Binary_tree
+
+==================================================================
+
+Notes on compilation process:
+
+C compiler is said to be a 2 phase compiler.
+----------------------------------------------
+
+program --> (ASCII) --> first.c
+ |
+ |---> Pre-Processing (preprocessing related errors)
+ |
+Source code --> first.i  (aka intermediary code after preprocessor directives are processed)
+ |
+ | --> Compilation (Phase I) --> .s file --> declarations (declaration related errors)
+ |
+Object Code --> first.o/first.obj
+ |
+ | --> Linking (Phase II) --> definition (definition related errors)
+ |
+ V
+Executable --> (Binary) --> a.out 
+
+three temp files are deleted and only a.out file is kept as its the executable.
+
+in order to save temp files like .i, .s, .o
+use flag -save-temps
+like:
+gcc -save-temps filename.c
+
+for only .i => -e
+for only .s => -S
+for only .o => -o
+
+========================================================================
+
+1 question from C, 1 from Data Structure (No binary tree)
