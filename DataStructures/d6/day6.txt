@@ -69,6 +69,9 @@ for only .i => -e
 for only .s => -S
 for only .o => -o
 
+for more compiler options:
+http://www.cs.fsu.edu/~baker/ada/gnat/html/gcc_3.html
+
 ========================================================================
 
 1 question from C, 1 from Data Structure (No binary tree)
