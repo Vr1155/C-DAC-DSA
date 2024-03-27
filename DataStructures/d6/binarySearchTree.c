@@ -23,7 +23,6 @@ int main(){
 		insert(arr[i]);
 	}
 	disp();
-
 }
 
 void insert(int num){
@@ -49,3 +48,46 @@ void insert(int num){
 	}
 }
 
+Node* createNode(int num){
+	Node* New = malloc(sizeof(Node));
+	if(New != NULL){
+		New->data = num;
+		New->left = New->right = NULL;
+	}
+	return New;
+}
+
+void disp(){
+	printf("Pre-Order:  ");
+	preOrder(root);
+	printf("\nIn-Order:   ");
+	inOrder(root);
+	printf("\nPost-Order: ");
+	postOrder(root);
+	printf("\n=========================================\n");
+}
+
+void preOrder(Node *root){
+	if(root != NULL){
+		printf("%d ", root->data);
+		preOrder(root->left);
+		preOrder(root->right);
+	}
+}
+
+void inOrder(Node* root){
+	if(root != NULL){
+		preOrder(root->left);
+		printf("%d ", root->data);
+		preOrder(root->right);
+	}	
+}
+
+
+void postOrder(Node* root){
+	if(root != NULL){
+		preOrder(root->left);
+		preOrder(root->right);
+		printf("%d ", root->data);
+	}	
+}
