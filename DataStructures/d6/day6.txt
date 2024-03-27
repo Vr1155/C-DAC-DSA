@@ -12,4 +12,24 @@ Introduction to Trees
 		Heap Sort
 
 
+What is the need of binary trees?
 
+Linked list is a linear DS and only allows linear search.
+Binary search is a performance optimization over linear search.
+Therefore, binary search trees are better way to store data if,
+searching data efficiently is a high priority.
+
+A complete binary tree is a binary tree in which every level, 
+except possibly the last, is completely filled, 
+and all nodes in the last level are as far left as possible. 
+It can have between 1 and 2^h nodes at the last level h. 
+A complete binary tree can be efficiently represented as an array.
+
+A perfect binary tree is a binary tree in which 
+all interior nodes have two children and all leaves have the same depth or same level 
+(the level of a node defined as the number of edges or links from the root node to a node). 
+A perfect binary tree is a full binary tree.
+A perfect tree is therefore always complete but a complete tree is not always perfect.
+
+
+see for more info: https://en.wikipedia.org/wiki/Binary_tree
