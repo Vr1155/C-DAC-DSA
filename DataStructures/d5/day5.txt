@@ -23,3 +23,13 @@ n
 
 to jump to next breakpoint (line by line),
 eventually you will reach the line that gives the segfault
+
+Linked List...
+creating Two/Multiple lists
+Taking input from string
+Taking input from files
+
+Introduction to Doubly Linked List
+Intro to circular singly/Doubly Linked List.
+
+
