@@ -33,3 +33,15 @@ Introduction to Doubly Linked List
 Intro to circular singly/Doubly Linked List.
 
 
+Why do we need Circular Linked Lists?
+
+In production ready code, we want to reduce the chances of runtime errors.
+deferencing a pointer pointing to NULL will give segfault.
+eg: 
+ptr = NULL; 
+(*ptr) => segfault
+
+
+
+
+
